@@ -40,6 +40,7 @@ return require('packer').startup(function()
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/nvim-compe'
   use 'scrooloose/nerdcommenter' -- commenting shortcuts
+  use 'mattn/emmet-vim'
 
   -- search
   use 'mileszs/ack.vim'

@@ -107,3 +107,9 @@ vim.cmd([[
 
 -- Fast search by \\
 vim.api.nvim_set_keymap('n', '\\', ':Ag<SPACE>', { noremap = true, silent = true })
+
+-- Enable emmet-vim just for html/css
+vim.cmd([[
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css EmmetInstall
+]])
