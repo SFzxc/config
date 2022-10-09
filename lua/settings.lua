@@ -1,43 +1,46 @@
 local fn = vim.fn
+local o = vim.o
+local wo = vim.wo
 
 HOME = os.getenv("HOME")
 
 vim.g.mapleader = ','
 
 -- basic settings
-vim.o.encoding = "utf-8"
-vim.o.background = "dark"
-vim.o.clipboard = "unnamedplus"
-vim.o.completeopt = "noinsert,menuone,noselect"
-vim.o.hidden = true
-vim.o.inccommand = "split"
-vim.o.mouse = "a"
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.title = true
-vim.o.ttimeoutlen = 0
-vim.o.autoread = true
-vim.o.showcmd = true
-vim.o.autoindent = true                      -- Auto indention should be on
-vim.wo.wrap = false
-vim.o.lazyredraw = true
-vim.o.incsearch = true
-vim.o.smartcase = true
-vim.o.laststatus = 2
-vim.o.noshowmatch = true
-vim.o.termguicolors = true
-vim.o.nobackup = true
-vim.o.nowritebackup = true
-vim.o.belloff = "all" -- Off shit bell
-vim.o.nocompatible = true -- Use VIM settings rather than Vi settings; this *must* be first in .vimrc
-vim.o.encoding = "UTF-8"
-vim.o.expandtab = true
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
+o.encoding = "utf-8"
+o.background = "dark"
+o.clipboard = "unnamedplus"
+o.completeopt = "noinsert,menuone,noselect"
+o.hidden = true
+o.inccommand = "split"
+o.mouse = "a"
+o.number = true
+o.relativenumber = true
+o.title = true
+o.ttimeoutlen = 0
+o.autoread = true
+o.showcmd = true
+o.autoindent = true                      -- Auto indention should be on
+wo.wrap = false
+o.lazyredraw = true
+o.incsearch = true
+o.smartcase = true
+o.laststatus = 2
+o.noshowmatch = true
+o.termguicolors = true
+o.nobackup = true
+o.nowritebackup = true
+o.belloff = "all" -- Off shit bell
+o.nocompatible = true -- Use VIM settings rather than Vi settings; this *must* be first in .vimrc
+o.encoding = "UTF-8"
+o.expandtab = true
+o.shiftwidth = 2
+o.tabstop = 2
+o.incsearch = true
 
 -- Commands mode
-vim.o.wildmenu = true -- on TAB, complete options for system command
-vim.o.wildignore = 'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc'
+o.wildmenu = true -- on TAB, complete options for system command
+o.wildignore = 'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc'
 
 -- Search settings
 vim.api.nvim_exec([[
@@ -85,7 +88,7 @@ vim.cmd([[
 -- The Silver Searcher
 if (fn.executable('ag') ~= 0) then
 	vim.env.FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore venv/ --ignore coverage/ --ignore node_modules/ --ignore target/  --ignore __pycache__/ --ignore dist/ --ignore build/ --ignore .DS_Store  -g ""'
-	vim.o.grepprg = "ag --nogroup --nocolor"
+	o.grepprg = "ag --nogroup --nocolor"
 	vim.cmd([[
 		  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 		  let g:ctrlp_use_caching = 0
