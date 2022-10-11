@@ -1,4 +1,9 @@
-return require('packer').startup(function()
+-- local on_attach = function(client, bufnr)
+--   -- Enable completion triggered by <c-x><c-o>
+--   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+-- end
+
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- common
@@ -35,7 +40,17 @@ return require('packer').startup(function()
   require('material').setup()
 
   -- general dev
+  use { "williamboman/mason.nvim" }
+  require("mason").setup()
   use 'neovim/nvim-lspconfig'
+  -- require'lspconfig'.solidity.setup {}
+  -- require'lspconfig'.sumneko_lua.setup {}
+  -- require('lspconfig')['tsserver'].setup {
+  --   on_attach = on_attach
+  -- }
+  require'lspconfig'.ruby_ls.setup {}
+  -- require'lspconfig'.rust_analyzer.setup{}
+
   use 'kabouzeid/nvim-lspinstall'
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/nvim-compe'
