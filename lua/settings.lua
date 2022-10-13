@@ -7,13 +7,12 @@ HOME = os.getenv("HOME")
 vim.g.mapleader = ','
 
 -- basic settings
-o.encoding = "utf-8"
 o.background = "dark"
 o.clipboard = "unnamedplus"
-o.completeopt = "noinsert,menuone,noselect"
+o.completeopt = "menu,noinsert,menuone,noselect"
 o.hidden = true
 o.inccommand = "split"
-o.mouse = "a"
+-- o.mouse = "a"
 o.number = true
 o.relativenumber = true
 o.title = true
@@ -31,12 +30,16 @@ o.termguicolors = true
 o.nobackup = true
 o.nowritebackup = true
 o.belloff = "all" -- Off shit bell
-o.nocompatible = true -- Use VIM settings rather than Vi settings; this *must* be first in .vimrc
 o.encoding = "UTF-8"
 o.expandtab = true
 o.shiftwidth = 2
 o.tabstop = 2
 o.incsearch = true
+-- o.nocompatible = true
+
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Commands mode
 o.wildmenu = true -- on TAB, complete options for system command
@@ -48,6 +51,16 @@ vim.api.nvim_exec([[
 	hi Search ctermbg=Grey
 	hi Search ctermfg=NONE
 ]], false)
+
+-- --- Coloring
+vim.cmd[[colorscheme dracula]]
+-- vim.api.nvim_exec([[
+--   highlight Normal guibg=NONE ctermbg=NONE
+--   highlight LineNr guibg=NONE ctermbg=NONE
+--   set fillchars+=vert:\│
+--   highlight WinSeparator gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
+--   highlight VertSplit gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
+-- ]], false)
 
 -- Only show cursorline in the current window and in normal mode.
 vim.cmd([[
@@ -79,10 +92,11 @@ vim.cmd([[
 ]])
 
 vim.cmd([[
-	let loaded_matchparen = 1
-	let NERDTreeAutoDeleteBuffer = 1
-	let g:NERDTreeNodeDelimiter = "\u00a0"
-	let g:snipMate = { 'snippet_version' : 1 }
+  let loaded_matchparen = 1
+  let NERDTreeAutoDeleteBuffer = 1
+  let g:NERDTreeMinimalMenu=1
+  let g:NERDTreeNodeDelimiter = "\u00a0"
+  let g:snipMate = { 'snippet_version' : 1 }
 ]])
 
 -- The Silver Searcher

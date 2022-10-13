@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
   use 'kana/vim-textobj-line'
   use 'kana/vim-textobj-user'
   use 'michaeljsmith/vim-indent-object'
-  use 'scrooloose/nerdtree'
+  use 'preservim/nerdtree'
   use 'terryma/vim-multiple-cursors'
   use 'tomasr/molokai'
   use 'tomlion/vim-solidity'
@@ -36,26 +36,39 @@ return require('packer').startup(function(use)
   use 'tpope/vim-dispatch'
   use 'sbdchd/neoformat'
 
-  use 'marko-cerovac/material.nvim'
-  require('material').setup()
+  use 'Mofiqul/dracula.nvim'
+  use 'yuttie/hydrangea-vim'
 
   -- general dev
-  use { "williamboman/mason.nvim" }
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+    'kabouzeid/nvim-lspinstall'
+  }
   require("mason").setup()
-  use 'neovim/nvim-lspconfig'
-  -- require'lspconfig'.solidity.setup {}
-  -- require'lspconfig'.sumneko_lua.setup {}
-  -- require('lspconfig')['tsserver'].setup {
-  --   on_attach = on_attach
-  -- }
+  -- require("mason-lspconfig").setup({})
+  require('lspconfig').tsserver.setup{}
   require'lspconfig'.ruby_ls.setup {}
-  -- require'lspconfig'.rust_analyzer.setup{}
+  require'lspconfig'.solidity.setup {}
 
-  use 'kabouzeid/nvim-lspinstall'
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
   use 'scrooloose/nerdcommenter' -- commenting shortcuts
   use 'mattn/emmet-vim'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'MunifTanjim/prettier.nvim'
+  -- require("prettier").setup()
+  -- require("null-ls").setup({
+  --   sources = {
+  --     require("null-ls").builtins.formatting.stylua,
+  --     require("null-ls").builtins.diagnostics.eslint,
+  --     require("null-ls").builtins.completion.spell,
+  --   },
+  -- })
 
   -- search
   use 'mileszs/ack.vim'
