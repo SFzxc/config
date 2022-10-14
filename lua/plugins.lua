@@ -1,8 +1,3 @@
--- local on_attach = function(client, bufnr)
---   -- Enable completion triggered by <c-x><c-o>
---   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
--- end
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -35,40 +30,25 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'tpope/vim-dispatch'
   use 'sbdchd/neoformat'
+  use 'nvim-treesitter/nvim-treesitter' -- enhanced highlighting
 
   use 'Mofiqul/dracula.nvim'
   use 'yuttie/hydrangea-vim'
 
   -- general dev
-  use {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
-    'kabouzeid/nvim-lspinstall'
-  }
-  require("mason").setup()
-  -- require("mason-lspconfig").setup({})
-  require('lspconfig').tsserver.setup{}
-  require'lspconfig'.ruby_ls.setup {}
-  require'lspconfig'.solidity.setup {}
-
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
   use 'glepnir/lspsaga.nvim'
-  use 'hrsh7th/nvim-compe'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-compe'
+
   use 'scrooloose/nerdcommenter' -- commenting shortcuts
   use 'mattn/emmet-vim'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
-  -- require("prettier").setup()
-  -- require("null-ls").setup({
-  --   sources = {
-  --     require("null-ls").builtins.formatting.stylua,
-  --     require("null-ls").builtins.diagnostics.eslint,
-  --     require("null-ls").builtins.completion.spell,
-  --   },
-  -- })
 
   -- search
   use 'mileszs/ack.vim'

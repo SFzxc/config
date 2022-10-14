@@ -9,7 +9,7 @@ vim.g.mapleader = ','
 -- basic settings
 o.background = "dark"
 o.clipboard = "unnamedplus"
-o.completeopt = "menu,noinsert,menuone,noselect"
+o.completeopt = "menu,noinsert,menuone"
 o.hidden = true
 o.inccommand = "split"
 -- o.mouse = "a"
@@ -35,7 +35,8 @@ o.expandtab = true
 o.shiftwidth = 2
 o.tabstop = 2
 o.incsearch = true
--- o.nocompatible = true
+o.nocompatible = true
+o.updatetime = 250
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
