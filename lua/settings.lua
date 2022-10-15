@@ -37,6 +37,7 @@ o.tabstop = 2
 o.incsearch = true
 o.nocompatible = true
 o.updatetime = 250
+o.noswapfile = true
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
@@ -53,8 +54,19 @@ vim.api.nvim_exec([[
 	hi Search ctermfg=NONE
 ]], false)
 
--- --- Coloring
-vim.cmd[[colorscheme dracula]]
+
+--- Coloring ---------
+-- vim.cmd[[colorscheme dracula]]
+-- require('onedark').load()
+-- o.background = "light" -- or "light" for light mode
+-- vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd[[colorscheme tokyonight]]
+-- require('monokai').setup { palette = require('monokai').pro }
+-- require('monokai').setup { palette = require('monokai').soda }
+-- require('monokai').setup {}
+o.background = "dark"
+vim.cmd[[colorscheme  palenight]]
+
 -- vim.api.nvim_exec([[
 --   highlight Normal guibg=NONE ctermbg=NONE
 --   highlight LineNr guibg=NONE ctermbg=NONE
@@ -131,3 +143,8 @@ vim.cmd([[
   let g:user_emmet_install_global = 0
   autocmd FileType html,css EmmetInstall
 ]])
+
+vim.diagnostic.config({
+  underline = false,
+  signs = false,
+})

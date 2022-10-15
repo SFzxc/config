@@ -1,7 +1,7 @@
 -- Set up nvim-cmp.
 local cmp = require('cmp')
 local lspconfig = require('lspconfig')
-local servers = { 'tsserver', 'solidity_ls', 'solargraph', 'dockerls' }
+local servers = { 'sumneko_lua', 'tsserver', 'solidity_ls', 'solargraph', 'dockerls' }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
@@ -43,6 +43,6 @@ cmp.setup({
 -- Set up lspconfig.
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
-    capabilities = capabilities
+    capabilities = capabilities,
   })
 end

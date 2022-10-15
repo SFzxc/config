@@ -31,9 +31,15 @@ return require('packer').startup(function(use)
   use 'tpope/vim-dispatch'
   use 'sbdchd/neoformat'
   use 'nvim-treesitter/nvim-treesitter' -- enhanced highlighting
+  use 'lukas-reineke/indent-blankline.nvim'
 
   use 'Mofiqul/dracula.nvim'
   use 'yuttie/hydrangea-vim'
+  use 'navarasu/onedark.nvim'
+  use 'ellisonleao/gruvbox.nvim'
+  use 'folke/tokyonight.nvim'
+  use 'tanvirtin/monokai.nvim'
+  use 'drewtempelmeyer/palenight.vim'
 
   -- general dev
   use 'neovim/nvim-lspconfig'
