@@ -67,15 +67,12 @@ return require('packer').startup(function(use)
   use 'tpope/vim-eunuch' -- wrappers UNIX commands
   use 'tpope/vim-surround' -- surround characters shortcuts
   use 'tpope/vim-vinegar' -- file browser
-  use 'kyazdani42/nvim-web-devicons' -- icons when searching
 
   -- testing
-  use 'kassio/neoterm' -- terminal wrapper
   use 'janko-m/vim-test' -- testing commands
 
   -- javascript
   use { 'HerringtonDarkholme/yats.vim', ft = 'typescript' }
-  use { 'posva/vim-vue' } -- Vue highlighting
   use 'othree/javascript-libraries-syntax.vim'
 
   -- python

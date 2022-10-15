@@ -10,7 +10,6 @@ cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
-      -- vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   window = {
@@ -22,8 +21,8 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Using Enter to confirmed completion selection
+    ['<Tab>'] = cmp.mapping(function(fallback)         -- Tab to go to next completion
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -32,7 +31,7 @@ cmp.setup({
         fallback()
       end
     end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ['<S-Tab>'] = cmp.mapping(function(fallback)       -- Shift-Tab to back to previous completion
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
